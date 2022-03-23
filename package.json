@@ -19,7 +19,11 @@
     "url": "https://github.com/luizokada/prova-colecttion/issues"
   },
   "homepage": "https://github.com/luizokada/prova-colecttion#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "mongoose": "^6.2.6"
   }
 }
