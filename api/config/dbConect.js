@@ -1,6 +1,6 @@
 import mongooese from "mongoose"
 
-mongooese.connect("mongodb+srv://luiz:123@cluster0.qnwn2.mongodb.net/cluster0");
+mongooese.connect("mongodb+srv://luiz:123@colecttion.qnwn2.mongodb.net/colecttion");
 
 let db = mongooese.connection;
 

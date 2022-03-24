@@ -3,7 +3,7 @@ import produtos from "./produtoRoute.js"
 
 const routes = (app) => {
     app.route('/').get((req, res) => {
-        res.status(200).send({ nome: "Ola marilena" })
+        res.status(200)
     })
     app.use(
         express.json(),

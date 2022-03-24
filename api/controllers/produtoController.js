@@ -49,10 +49,10 @@ class produtoController {
 
         produtos.findByIdAndDelete(id, (err) => {
             if (!err) {
-                res.status(200).message(`Livro deletado com sucesso`)
+                res.status(200).send(`Produto deletado com sucesso`)
             }
             else {
-                res.status(500).message(`${err.message} - Erro na exclusao`)
+                res.status(500).send(`${err.message} - Erro na exclusao`)
             }
         })
     }

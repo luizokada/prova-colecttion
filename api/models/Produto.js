@@ -8,6 +8,7 @@ const produtoSchema = new mongoose.Schema(
         thumb: { type: String, required: true },
         dataInativacao: { type: Date },
         ativo: { type: Boolean, required: true },
+        descricao: { type: String, required: true }
     }
 )
 
