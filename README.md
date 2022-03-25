@@ -20,19 +20,20 @@ Requisitos:
 para selecionar a marca;
 - Modal para Inclusão dos produtos;
 
-#h1 Como rodar a aplicação
+# Como rodar a aplicação
 
 necessário abrir dois terminais uma para inicilizar a API e outro para o APP
 
 Inicialize a API primeiro 
-# Markdown
+# Como utlizar
+## Primeiro passo
 
 ```
 npm run api
 ```
 
 Inicialize o app depois
-# Markdown
+# Segundo passo
 
 ```
 npm run app
