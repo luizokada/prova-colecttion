@@ -1,38 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Botao from '../../Botao/Botao';
 import api from '../../../services/api';
+import Modal from '../../Modal/Modal';
+import FormEdicao from '../../form/Edicao/FormEdicao';
+import ConfirmacaoExclusao from '../../Confirmacao/ConfirmacaoExclusao/ConfirmarcaoEsclusao';
 function Item(props) {
-    function excluirProduto(id) {
-        api
-            .delete(`/produtos/${props._id}`)
-            .then((response) => { props.BuscarProdutos(); console.log(response.data) })
-            .catch((err) => {
-                console.error("ops! ocorreu um erro" + err);
-            });
+
+    const [modalEditar, setModalEditar] = useState(false);
+    const [modalExcluir, setModalExcluir] = useState(false);
+
+    function onCloseModalEditar() {
+        setModalEditar(false)
 
     }
 
-    function editarProduto(id) {
-        console.log("alo")
+    function onCloseModalExcluir() {
+        setModalExcluir(false)
 
     }
 
 
     return (
         <li>
-            <img src={props.thumb} />
-            <p>{props.nome}</p>
-            <p>{props.marca}</p>
-            <p>{props.descricao}</p>
+            <img src={props.produto.thumb} />
+            <p>{props.produto.nome}</p>
+            <p>{props.produto.marca}</p>
+            <p>{props.produto.descricao}</p>
 
             <Botao
-                text="Excluir"
-                onClick={() => excluirProduto(props._id)}
+                texto="Excluir"
+                onClick={() => setModalExcluir(true)}
+            />
+            <ConfirmacaoExclusao
+                onClose={onCloseModalExcluir}
+                aberto={modalExcluir}
+                BuscarProdutos={props.BuscarProdutos}
+                produto={props.produto}
+
+
             />
             <Botao
-                text="Editar"
-                onClick={() => editarProduto()}
+                texto="Editar"
+                onClick={() => setModalEditar(true)}
             />
+            <Modal
+                onClose={onCloseModalEditar}
+                aberto={modalEditar}
+
+            >
+                <FormEdicao
+                    BuscarProdutos={props.BuscarProdutos}
+                    onClose={onCloseModalEditar}
+                    produto={props.produto}
+                />
+            </Modal>
         </li>
     );
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import Botao from "../Botao/Botao.jsx"
+import Botao from '../../Botao/Botao.jsx';
 
-import api from "../../services/api.js";
+import api from '../../../services/api.js';
 
 function FormBusca(props) {
     const [nome, setNome] = useState('');
@@ -29,11 +29,11 @@ function FormBusca(props) {
                     }}
                 />
                 <Botao
-                    text="Buscar"
+                    texto="Buscar"
                 />
             </form>
             <Botao
-                text="Início"
+                texto="Início"
                 onClick={() => props.BuscarProdutos()}
             />
         </div>

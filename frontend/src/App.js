@@ -1,15 +1,20 @@
 
 import './App.css';
-import Form from './components/form/cadastro/form'
+import Form from './components/form/Cadastro/FormCadastro'
 
 import api from "./services/api.js";
 import { useState, useEffect } from 'react';
 import Lista from './components/Lista/Lista';
-import FormBusca from './components/Busca/FormBusca';
+import FormBusca from './components/form/Busca/FormBusca';
+import Modal from './components/Modal/Modal';
+import Botao from './components/Botao/Botao';
 
 
 function App() {
   const [produtos, setProdutos] = useState([]);
+  const [modalCadastro, setModalCadastro] = useState(false);
+  const [modalExcluir, setModalExcluir] = useState(false);
+  const [modalEditar, setModalEditar] = useState(false);
 
   function BuscarProdutos() {
 
@@ -30,13 +35,30 @@ function App() {
       });
 
   }
+
+  function onCloseModalCadastro() {
+    setModalCadastro(false)
+
+  }
+
+
   useEffect(BuscarProdutos, []);
 
   return (
     <div>
+      <Botao
+        texto="Cadastro"
+        onClick={() => setModalCadastro(true)}
+      />
+      <Modal
+        aberto={modalCadastro}
+        onClose={onCloseModalCadastro}
+      >
 
-      <Form
-        BuscarProdutos={BuscarProdutos} />
+        <Form
+          BuscarProdutos={BuscarProdutos}
+        />
+      </Modal>
       <FormBusca
         BuscarPorNome={BuscarPorNome}
         BuscarProdutos={BuscarProdutos}

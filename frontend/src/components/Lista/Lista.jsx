@@ -15,7 +15,6 @@ function Lista(props) {
                         produto={item}
                         BuscarProdutos={props.BuscarProdutos}
                         key={index}
-                        {...item}
                     />
                 ))}
             </ul>
