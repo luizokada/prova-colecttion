@@ -28,9 +28,9 @@ nodejs + express + mongodb (mongoose)
 
 necessário abrir dois terminais uma para inicilizar a API e outro para o APP
 
-Inicialize a API primeiro 
 # Como utlizar
 ## Primeiro passo
+Inicialize a API primeiro 
 
 ```
 npm run api
