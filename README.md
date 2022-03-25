@@ -19,3 +19,21 @@ Requisitos:
 - Modal para edição, com todas as informações do produto, incluindo um combobox
 para selecionar a marca;
 - Modal para Inclusão dos produtos;
+
+#h1 Como rodar a aplicação
+
+necessário abrir dois terminais uma para inicilizar a API e outro para o APP
+
+Inicialize a API primeiro 
+# Markdown
+
+```
+npm run api
+```
+
+Inicialize o app depois
+# Markdown
+
+```
+npm run app
+```

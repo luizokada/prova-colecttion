@@ -1,0 +1,22 @@
+{
+  "name": "prova-collection",
+  "version": "1.0.0",
+  "description": "front-end",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "api": "cd ./api && npm run dev ",
+    "app": "cd ./frontend && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luizokada/prova-colecttion.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luizokada/prova-colecttion/issues"
+  },
+  "homepage": "https://github.com/luizokada/prova-colecttion#readme"
+}
