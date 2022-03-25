@@ -25,8 +25,13 @@ nodejs + express + mongodb (mongoose)
 
 
 # Como rodar a aplicação
+Necessário instalar as dependencia do projeto abra a pasta do frontend e API e execute o comando
 
-necessário abrir dois terminais uma para inicilizar a API e outro para o APP
+```
+npm install
+```
+
+Após isso é necessário abrir dois terminais uma para inicilizar a API e outro para o APP
 
 # Como utlizar
 ## Primeiro passo
