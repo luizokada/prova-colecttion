@@ -11,7 +11,13 @@ class produtoController {
     static listarProdutoPorNome = (req, res) => {
         const nome = req.query.nome;
         produtos.find({ 'nome': nome }, {}, (err, produtos) => {
-            res.status(200).send(produtos)
+
+            if (err) {
+                res.status(500).send({ message: `${err.message} -  Erro ao cadastrar o novo produto` });
+            }
+            else {
+                res.status(200).send(produtos);
+            }
         })
     }
 

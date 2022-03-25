@@ -35,10 +35,13 @@ function Form(props) {
             .then((response) => {
                 setNome('');
                 setDescricao('');
-                setMarca('')
+                setMarca('');
+                setThumb('');
+                props.BuscarProdutos();
             })
             .catch((err) => {
                 console.error("ops! ocorreu um erro" + err);
+                console.log(marca)
             });
 
     }
@@ -48,6 +51,7 @@ function Form(props) {
 
             <input
                 placeholder="Nome do Produto"
+                value={nome}
                 type="text"
                 name='Nome-do-Produto'
                 onChange={evento => setNome(evento.target.value)}
@@ -57,6 +61,7 @@ function Form(props) {
             <label htmlFor="descricao">Descricao do Produto</label>
             <textarea name="descricao"
                 onChange={evento => setDescricao(evento.target.value)}
+                value={descricao}
                 required
 
 
@@ -65,6 +70,7 @@ function Form(props) {
             <select name="marca"
                 onChange={evento => setMarca(evento.target.value)}
                 required
+                value={marca}
             >
                 {marcas.map((item, index) => (
                     <option key={index} value={item.name}>{item.name}</option>
@@ -77,6 +83,7 @@ function Form(props) {
                 type="text"
                 name='Thumb-do-Produto'
                 onChange={evento => setThumb(evento.target.value)}
+                value={thumb}
                 required
             />
             <Botao
