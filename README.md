@@ -33,7 +33,7 @@ npm run api
 ```
 
 Inicialize o app depois
-# Segundo passo
+## Segundo passo
 
 ```
 npm run app
