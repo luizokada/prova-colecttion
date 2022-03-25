@@ -1,14 +1,5 @@
-# prova-colecttion
-front-end
+# O problema que está sendo resolvido
 
-reactjs
-
-
-back-end
-
-nodejs + express + mongodb (mongoose)
-
-Atividade:
 CRUD básico de Produtos:
 Estrutura:
 Produto: Id, Thumb (imagem), Descrição, Marca, Ativo, Data Inativação;
@@ -19,6 +10,19 @@ Requisitos:
 - Modal para edição, com todas as informações do produto, incluindo um combobox
 para selecionar a marca;
 - Modal para Inclusão dos produtos;
+
+# Estrutura do projeto
+
+front-end
+
+reactjs
+
+
+back-end
+
+nodejs + express + mongodb (mongoose)
+
+
 
 # Como rodar a aplicação
 
