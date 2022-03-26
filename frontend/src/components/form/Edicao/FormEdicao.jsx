@@ -6,10 +6,8 @@ import AreaDeTexto from "../../AreaDeTexto/CaixaDeTexto";
 import CaixaDeSelecao from "../../CaixaDeSelecao/CaixaDeSelecao";
 import CaixaDeChecagem from "../../CaixaDeCheacagem/CaixaDeChecagem";
 import "./style.css";
-
+import marcas from "../../../utils/marcas.js";
 function FormEdicao(props) {
-  const marcas = [" ", "Portobello", "Portinari", "Deita", "Decotiles"];
-
   const { produtoAntigo, BuscarProdutos, onClose } = props;
   const [produto, setProduto] = useState(produtoAntigo);
 
@@ -68,7 +66,7 @@ function FormEdicao(props) {
         label="Marca"
         name="marca"
         id="marca"
-        options={marcas}
+        options={marcas.map((marca) => marca.nome)}
         onChange={onChangeHandler}
         required
         value={produto.marca}

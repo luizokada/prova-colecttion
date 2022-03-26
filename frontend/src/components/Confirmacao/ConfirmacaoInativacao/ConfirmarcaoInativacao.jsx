@@ -8,9 +8,10 @@ function ConfirmacaoExclusao(props) {
   const { aberto, produto, onClose, title, BuscarProdutos } = props;
   function excluirProduto(id) {
     api
-      .delete(`/produtos/${id}`)
+      .put(`/produtos/${produto._id}`, { ...produto, ativo: false })
       .then((response) => {
         BuscarProdutos();
+        onClose();
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);

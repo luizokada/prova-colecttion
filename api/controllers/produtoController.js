@@ -33,33 +33,31 @@ class produtoController {
       }
     });
   };
+
   static atualizarProduto = (req, res) => {
     const id = req.params.id;
 
-    if (req.body.ativo) {
-      const newProduto = { ...req.body, dataInativacao: "" };
-      produtos.findByIdAndUpdate(id, { $set: newProduto }, (err) => {
-        if (!err) {
-          res.status(200).send({ message: `Produto alterado com sucesso` });
-        } else {
-          res
-            .status(500)
-            .send({ message: `${err.message} - Erro na atualização` });
-        }
-      });
-    } else {
-      const data = new Date();
-      const newProduto = { ...req.body, dataInativacao: data };
-      produtos.findByIdAndUpdate(id, { $set: newProduto }, (err) => {
-        if (!err) {
-          res.status(200).send({ message: `Produto alterado com sucesso` });
-        } else {
-          res
-            .status(500)
-            .send({ message: `${err.message} - Erro na atualização` });
-        }
-      });
-    }
+    const dataInativacao = req.body.ativo ? "" : new Date();
+
+    const newProduto = {
+      id: id,
+      nome: req.body.nome,
+      marca: req.body.marca,
+      thumb: req.body.thumb,
+      descricao: req.body.descricao,
+      ativo: req.body.ativo,
+      dataInativacao,
+    };
+
+    produtos.findByIdAndUpdate(id, { $set: newProduto }, (err) => {
+      if (!err) {
+        res.status(200).send({ message: `Produto alterado com sucesso` });
+      } else {
+        res
+          .status(500)
+          .send({ message: `${err.message} - Erro na atualização` });
+      }
+    });
   };
 
   static excluirProduto = (req, res) => {

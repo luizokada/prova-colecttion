@@ -6,7 +6,7 @@ import api from "../../../services/api.js";
 import CaixaDeTexto from "../../CaixaDeTexto/CaixaDeTexto";
 import AreaDeTexto from "../../AreaDeTexto/CaixaDeTexto";
 import CaixaDeSelecao from "../../CaixaDeSelecao/CaixaDeSelecao";
-
+import marcas from "../../../utils/marcas.js";
 const DEFAUT_PRODUTO = {
   nome: "",
   marca: "",
@@ -16,8 +16,6 @@ const DEFAUT_PRODUTO = {
 };
 
 function Form(props) {
-  const marcas = [" ", "Portobello", "Portinari", "Deita", "Decotiles"];
-
   const [produto, setProduto] = useState(DEFAUT_PRODUTO);
 
   function onChangeHandler(evento) {
@@ -67,7 +65,7 @@ function Form(props) {
         label="Marca"
         name="marca"
         id="marca"
-        options={marcas}
+        options={marcas.map((marca) => marca.nome)}
         onChange={onChangeHandler}
         required
         value={produto.marca}
