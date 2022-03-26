@@ -34,7 +34,6 @@ function FormBusca(props) {
           </svg>
         </button>
       </form>
-      <Botao texto="Início" onClick={() => props.BuscarProdutos()} />
     </div>
   );
 }

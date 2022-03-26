@@ -1,19 +1,22 @@
 .list-item {
+  display: relative;
   margin: 20px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  background: rgba(141, 141, 141, 0.17);
 }
 
 .list-item-content {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background: rgba(141, 141, 141, 0.17);
 }
 
 .list-item-content p {
-  padding-left: 4px;
+  padding: 10px;
+  line-height: 1.5;
+  text-align: justify;
 }
 
 .list-item-content h2 {
@@ -46,4 +49,15 @@
 
 .item-nao-ativo h2 {
   padding: 5px;
+}
+
+.textarea-read {
+  resize: none;
+  width: 100%;
+  border: 1px solid #c9c9c9;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  outline: none;
+  background-color: rgba(230, 230, 230, 0.9);
 }

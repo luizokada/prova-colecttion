@@ -11,7 +11,6 @@ function ConfirmacaoExclusao(props) {
       .delete(`/produtos/${id}`)
       .then((response) => {
         BuscarProdutos();
-        console.log(response.data);
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);

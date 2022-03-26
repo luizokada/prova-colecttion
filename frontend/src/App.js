@@ -44,7 +44,12 @@ function App() {
   return (
     <div>
       <div className="app-header">
-        <Botao texto="Cadastro" onClick={() => setModalCadastro(true)} />
+        <center>
+          <div className="app-botao">
+            <Botao texto="Cadastro" onClick={() => setModalCadastro(true)} />
+            <Botao texto="Início" onClick={() => BuscarProdutos()} />
+          </div>
+        </center>
         <Modal
           aberto={modalCadastro}
           title="Cadastro de Produtos"

@@ -6,6 +6,8 @@ import FormEdicao from "../../form/Edicao/FormEdicao";
 import ConfirmacaoExclusao from "../../Confirmacao/ConfirmacaoExclusao/ConfirmarcaoEsclusao";
 import "./style.css";
 import CaixaDeChecagem from "../../CaixaDeCheacagem/CaixaDeChecagem";
+import CaixaDeTexto from "../../CaixaDeTexto/CaixaDeTexto";
+import AreaDeTexto from "../../AreaDeTexto/CaixaDeTexto";
 
 function Item(props) {
   const [modalEditar, setModalEditar] = useState(false);
@@ -36,9 +38,14 @@ function Item(props) {
         <p>{produto.marca}</p>
 
         <h2>Descricao</h2>
-        <p>{produto.descricao}</p>
 
-        <CaixaDeChecagem label="Ativo" checked={produto.ativo} />
+        <AreaDeTexto read={true} value={produto.descricao} />
+
+        <CaixaDeChecagem
+          label="Ativo"
+          checked={produto.ativo}
+          onChange={() => console.log("teste")}
+        />
 
         <div className={dataClass}>
           <h2>Data de inativação</h2>
