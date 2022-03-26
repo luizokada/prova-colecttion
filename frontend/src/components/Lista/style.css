@@ -1,0 +1,10 @@
+.list-content {
+  display: grid;
+  grid-template-columns: 25vw 25vw 25vw 25vw;
+}
+
+.list-container h1 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}

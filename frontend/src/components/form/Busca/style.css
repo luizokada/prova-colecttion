@@ -1,0 +1,36 @@
+.form-busca-container {
+  display: flex;
+  gap: 2px;
+}
+
+.form-content {
+  width: 100vw;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 20px;
+}
+.form-busca-button {
+  border: 0;
+  margin: 0;
+  margin-top: 20px;
+  padding: 8px;
+  background: transparent;
+  cursor: pointer;
+  color: rgb(52 52 52);
+}
+.form-content-texto {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.form-content-botao {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}

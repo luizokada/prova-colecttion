@@ -1,8 +1,15 @@
 import React from 'react';
+import "./style.css"
 
-export default function Botao(props) {
+
+function Botao(props) {
+
+    const { texto, onClick } = props
+
     return (
-        <button onClick={props.onClick}>{props.texto}</button>
+        <button className='botao--button' onClick={onClick}>{texto}</button>
     );
 
 }
+
+export default Botao

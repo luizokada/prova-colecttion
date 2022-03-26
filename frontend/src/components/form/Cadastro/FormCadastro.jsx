@@ -1,94 +1,91 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import Botao from '../../Botao/Botao';
-
+import React from "react";
+import { useState, useEffect } from "react";
+import Botao from "../../Botao/Botao";
+import "./style.css";
 import api from "../../../services/api.js";
+import CaixaDeTexto from "../../CaixaDeTexto/CaixaDeTexto";
+import AreaDeTexto from "../../AreaDeTexto/CaixaDeTexto";
+import CaixaDeSelecao from "../../CaixaDeSelecao/CaixaDeSelecao";
+
+const DEFAUT_PRODUTO = {
+  nome: "",
+  marca: "",
+  descricao: "",
+  thumb: "",
+  ativo: true,
+};
 
 function Form(props) {
+  const marcas = [" ", "Portobello", "Portinari", "Deita", "Decotiles"];
 
-    const marcas = [
-        { name: ' ' },
-        { name: 'Portobello' },
-        { name: 'Portinari' },
-        { name: 'Deita' },
-        { name: 'Decotiles' },
-    ];
+  const [produto, setProduto] = useState(DEFAUT_PRODUTO);
 
-    const [nome, setNome] = useState('');
-    const [marca, setMarca] = useState('');
-    const [descricao, setDescricao] = useState('');
-    const [thumb, setThumb] = useState('');
+  function onChangeHandler(evento) {
+    const { value, name } = evento.target;
 
+    setProduto((prevProduto) => ({
+      ...prevProduto,
+      [name]: value,
+    }));
+  }
+  function adcionarNovoProduto(evento) {
+    evento.preventDefault();
+    api
+      .post("/produtos", produto)
+      .then((response) => {
+        setProduto(DEFAUT_PRODUTO);
+        props.BuscarProdutos();
+      })
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  }
+  return (
+    <form className="form-cadastro-container" onSubmit={adcionarNovoProduto}>
+      <CaixaDeTexto
+        label="Nome do Produto"
+        placeholder="Ex: Piso"
+        value={produto.nome}
+        type="text"
+        name="nome"
+        id="nome-do-produto"
+        onChange={onChangeHandler}
+        required={true}
+      />
 
-    function adcionarNovoProduto(evento) {
-        evento.preventDefault();
-        api.post("/produtos",
-            {
+      <AreaDeTexto
+        label="Descrição do Produto"
+        placeholder="Ex: Beats é a nova batida! Tradução de como a vida pode ser mais leve e criativa."
+        name="descricao"
+        id="descricao"
+        onChange={onChangeHandler}
+        value={produto.descricao}
+        required={true}
+      />
 
-                "nome": nome,
-                "marca": marca,
-                "descricao": descricao,
-                "thumb": thumb,
-                "ativo": true
+      <CaixaDeSelecao
+        label="Marca"
+        name="marca"
+        id="marca"
+        options={marcas}
+        onChange={onChangeHandler}
+        required
+        value={produto.marca}
+      />
 
-            })
-            .then((response) => {
-                setNome('');
-                setDescricao('');
-                setMarca('');
-                setThumb('');
-                props.BuscarProdutos();
-            })
-            .catch((err) => {
-                console.error("ops! ocorreu um erro" + err);
-                console.log(marca)
-            });
-
-    }
-    return (
-        <form onSubmit={adcionarNovoProduto}>
-            <label htmlFor='Nome-do-Produto'>Nome do Produto</label>
-
-            <input
-                placeholder="Nome do Produto"
-                value={nome}
-                type="text"
-                name='Nome-do-Produto'
-                onChange={evento => setNome(evento.target.value)}
-                required
-            />
-
-            <label htmlFor="descricao">Descricao do Produto</label>
-            <textarea name="descricao"
-                onChange={evento => setDescricao(evento.target.value)}
-                value={descricao}
-                required
-
-
-            />
-            <label htmlFor="marca">Marca</label>
-            <select name="marca"
-                onChange={evento => setMarca(evento.target.value)}
-                required
-                value={marca}
-            >
-                {marcas.map((item, index) => (
-                    <option key={index} value={item.name}>{item.name}</option>
-                ))}
-            </select>
-            <label htmlFor='Thumb-do-Produto'>Link da Imagem do produto</label>
-
-            <input
-                placeholder="Link da imagem"
-                type="text"
-                name='Thumb-do-Produto'
-                onChange={evento => setThumb(evento.target.value)}
-                value={thumb}
-                required
-            />
-            <Botao
-                text="Cadastrar" />
-        </form>
-    )
+      <CaixaDeTexto
+        label="Link da Imagem do produto"
+        placeholder="Ex: https://minha.com/imagem.jpg"
+        type="text"
+        id="link-imagem"
+        name="thumb"
+        onChange={onChangeHandler}
+        value={produto.thumb}
+        required
+        className="inputTexto"
+      />
+      <Botao texto="Cadastrar" />
+    </form>
+  );
 }
-export default Form
+export default Form;

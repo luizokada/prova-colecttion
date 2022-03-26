@@ -1,0 +1,23 @@
+.caixa-de-selecao--root{
+
+
+}
+.caixa-de-selecao--label{
+    display: block;
+    margin-bottom: 8px;
+
+}
+.caixa-de-selecao--select{
+    display: block;
+    width: 100%;
+    border: 1px solid #c9c9c9;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    outline: none;
+}
+
+.caixa-de-selecao--select:focus{
+    border-color: #292929;
+}
+

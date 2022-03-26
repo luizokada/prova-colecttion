@@ -1,0 +1,17 @@
+.botao--button{
+    display: inline-block;
+    padding: 16px 24px;
+    width: min-content;
+    border: 0px;
+    background-color: #7f00de;
+    color:white;
+    font-weight: bold;
+    border-radius: 6px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    cursor: pointer;
+}
+
+.botao--button:hover{
+    background-color: #6403ad;
+}
+

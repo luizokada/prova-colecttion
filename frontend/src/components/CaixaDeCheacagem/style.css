@@ -1,0 +1,15 @@
+.caixa-de-checagem--root {
+}
+.caixa-de-checagem--label {
+  display: inline;
+  margin-right: 10px;
+  margin-bottom: 8px;
+}
+.caixa-de-checagem--checkbox {
+  border: 1px solid #c9c9c9;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+}
